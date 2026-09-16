@@ -1,3 +1,5 @@
+import { Resend } from "resend";
+
 export type ContactPayload = {
   name: string;
   email: string;
@@ -47,14 +49,36 @@ export function validateContactPayload(body: unknown): ValidationResult {
   };
 }
 
+const resendApiKey = process.env.RESEND_API_KEY;
+const contactToEmail = process.env.CONTACT_TO_EMAIL;
+const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
+
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
+
 /**
- * Processes a validated contact submission.
+ * Processes a validated contact submission and emails it via Resend.
  *
- * No email provider is configured for Version 1 — the submission is validated
- * and logged only. To send real notifications, integrate a provider here
- * (e.g. Resend, Postmark, SendGrid, or SMTP via Nodemailer) using credentials
- * supplied through environment variables (never hardcoded).
+ * Falls back to logging only when RESEND_API_KEY / CONTACT_TO_EMAIL aren't
+ * set, so the endpoint keeps working before email delivery is configured.
  */
 export async function processContactSubmission(payload: ContactPayload): Promise<void> {
   console.info(`Contact form submission received from ${payload.email} — subject: "${payload.subject}"`);
+
+  if (!resend || !contactToEmail) {
+    console.warn("Email delivery is not configured (RESEND_API_KEY / CONTACT_TO_EMAIL) — submission was only logged.");
+    return;
+  }
+
+  const { error } = await resend.emails.send({
+    from: `Portfolio Contact Form <${contactFromEmail}>`,
+    to: contactToEmail,
+    replyTo: payload.email,
+    subject: `[Portfolio Contact] ${payload.subject}`,
+    text: `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`,
+  });
+
+  if (error) {
+    console.error("Resend failed to deliver contact submission:", error);
+    throw new Error("Failed to send the message. Please try again or email me directly.");
+  }
 }

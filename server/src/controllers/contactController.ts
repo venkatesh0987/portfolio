@@ -8,7 +8,12 @@ export async function submitContact(req: Request, res: Response) {
     return res.status(400).json({ ok: false, message: result.errors.join(" ") });
   }
 
-  await processContactSubmission(result.data);
+  try {
+    await processContactSubmission(result.data);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Failed to send the message.";
+    return res.status(502).json({ ok: false, message });
+  }
 
   return res.status(200).json({ ok: true, message: "Message received." });
 }

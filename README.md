@@ -94,6 +94,9 @@ cp server/.env.example server/.env
 |---|---|---|
 | `PORT` | Port the API server listens on | `4000` |
 | `CLIENT_ORIGIN` | Comma-separated list of allowed CORS origins | `http://localhost:5173` |
+| `RESEND_API_KEY` | Resend API key used to email contact form submissions | _(unset — logs only)_ |
+| `CONTACT_TO_EMAIL` | Address that receives contact form submissions | _(unset — logs only)_ |
+| `CONTACT_FROM_EMAIL` | Sender address for outgoing emails | `onboarding@resend.dev` |
 
 Never commit `.env` files — they are excluded via `.gitignore`.
 
@@ -137,7 +140,15 @@ npm start
 | GET | `/api/health` | Health check |
 | POST | `/api/contact` | Validates and processes a contact form submission |
 
-`POST /api/contact` expects a JSON body: `{ name, email, subject, message }`. For Version 1, submissions are validated and logged server-side; no database or email provider is configured. To send real email notifications, integrate a provider (e.g. Resend, Postmark, SendGrid, or SMTP via Nodemailer) inside `server/src/services/contactService.ts`, using credentials from environment variables.
+`POST /api/contact` expects a JSON body: `{ name, email, subject, message }`. Submissions are always logged server-side. If `RESEND_API_KEY` and `CONTACT_TO_EMAIL` are set, the submission is also emailed via [Resend](https://resend.com) (see `server/src/services/contactService.ts`) — otherwise it's logged only.
+
+### Email delivery setup (Resend)
+
+1. Sign up at [resend.com](https://resend.com) with the inbox you want submissions delivered to.
+2. Create an API key and set it as `RESEND_API_KEY` on the server (Render).
+3. Set `CONTACT_TO_EMAIL` to that same inbox address.
+4. Leave `CONTACT_FROM_EMAIL` unset to use Resend's shared sandbox sender (`onboarding@resend.dev`) — this only works because it can **only deliver to the address your Resend account was created with**. To send to a different `CONTACT_TO_EMAIL` or from your own domain, [verify a domain](https://resend.com/domains) in Resend and set `CONTACT_FROM_EMAIL` to an address on it.
+5. Redeploy the backend after setting these.
 
 ## Deployment
 
@@ -155,7 +166,7 @@ npm start
 1. In Render, create a new **Web Service** from the same GitHub repository.
 2. Set the **Root Directory** to `server`.
 3. Build command: `npm install && npm run build`. Start command: `npm start`.
-4. Add environment variables `PORT` (Render sets this automatically) and `CLIENT_ORIGIN` (your deployed frontend URL, e.g. `https://yourdomain.com`).
+4. Add environment variables `PORT` (Render sets this automatically), `CLIENT_ORIGIN` (your deployed frontend URL, e.g. `https://yourdomain.com`), and `RESEND_API_KEY` / `CONTACT_TO_EMAIL` (see [Email delivery setup](#email-delivery-setup-resend) above) if you want submissions emailed to you.
 5. Deploy, then confirm `GET /api/health` responds on the Render URL.
 
 ### Custom Domain
@@ -169,6 +180,7 @@ npm start
 
 - **Contact form fails with a network error**: confirm `VITE_API_URL` in `client/.env` matches where the API is actually running, and that the API's `CLIENT_ORIGIN` includes the frontend's URL.
 - **CORS errors in the browser console**: the backend's `CLIENT_ORIGIN` env var must exactly match the frontend origin (protocol + domain, no trailing slash).
+- **Contact form submits successfully but no email arrives**: check the Render service logs for the submission line; if `RESEND_API_KEY` / `CONTACT_TO_EMAIL` aren't set, submissions are logged only, not emailed. If they are set, check logs for a Resend delivery error — the most common cause is sending to an address other than your Resend account's own email without a verified domain.
 - **Port already in use**: change `PORT` in `server/.env` or stop the process using that port.
 - **Type errors on build**: run `npm run typecheck` from the root to see errors from both client and server.
 
