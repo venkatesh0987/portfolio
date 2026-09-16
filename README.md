@@ -1,4 +1,4 @@
-# [YOUR NAME] — Portfolio
+# VENKATESAN R — Portfolio
 
 Professional portfolio and freelance lead-generation website for a Senior Full-Stack Software Developer with 13+ years of experience in SaaS and business application development.
 
@@ -176,7 +176,6 @@ npm start
 
 Search the project for the following and replace with your real information:
 
-- `[YOUR NAME]` — your full name (also update `client/src/data/profile.ts`, `client/index.html`)
 - `[YOUR EMAIL]` — your contact email
 - `[YOUR LINKEDIN]` — LinkedIn profile URL
 - `[YOUR GITHUB]` — GitHub profile URL

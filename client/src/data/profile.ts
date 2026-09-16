@@ -1,5 +1,5 @@
 export const profile = {
-  name: "[YOUR NAME]",
+  name: "VENKATESAN R",
   title: "Senior Full-Stack Software Developer",
   yearsExperience: "13+",
   sinceYear: 2013,
