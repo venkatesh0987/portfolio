@@ -46,8 +46,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             onClick={(event) => event.stopPropagation()}
-            className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-ink/10 bg-paper p-7 dark:border-paper/10 dark:bg-ink-soft"
+            className="relative max-h-[85vh] w-full max-w-lg overflow-hidden overflow-y-auto rounded-2xl border border-ink/10 bg-paper p-7 dark:border-paper/10 dark:bg-ink-soft"
           >
+            <div className="top-gradient-bar absolute inset-x-0 top-0 h-1" aria-hidden="true" />
             <button
               ref={closeButtonRef}
               type="button"

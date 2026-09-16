@@ -8,11 +8,12 @@ type ButtonProps = ComponentPropsWithoutRef<"a"> & {
 
 export function Button({ variant = "primary", showArrow = false, className = "", children, ...rest }: ButtonProps) {
   const base =
-    "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2";
+    "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2";
   const variants = {
-    primary: "bg-ink text-paper hover:bg-ink/85 dark:bg-paper dark:text-ink dark:hover:bg-paper/90",
+    primary:
+      "bg-gradient-to-r from-accent to-violet text-white shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-violet/30 hover:brightness-105",
     secondary:
-      "border border-ink/15 text-ink hover:border-ink/40 dark:border-paper/20 dark:text-paper dark:hover:border-paper/40",
+      "border border-ink/15 text-ink hover:border-accent/50 hover:text-accent dark:border-paper/20 dark:text-paper dark:hover:border-accent/50 dark:hover:text-accent",
   };
 
   return (

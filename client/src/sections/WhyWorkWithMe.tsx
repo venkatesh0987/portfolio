@@ -3,6 +3,8 @@ import { whyWorkWithMe } from "../data/experience";
 import { SectionHeading } from "../components/SectionHeading";
 import { Icon } from "../components/Icon";
 
+const iconStyles = ["text-accent", "text-violet", "text-sky", "text-amber", "text-rose"];
+
 export function WhyWorkWithMe() {
   return (
     <section id="why" className="py-20 sm:py-28">
@@ -17,9 +19,9 @@ export function WhyWorkWithMe() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, ease: "easeOut", delay: (index % 8) * 0.05 }}
-              className="flex items-start gap-3 rounded-xl border border-ink/10 p-4 dark:border-paper/10"
+              className="flex items-start gap-3 rounded-xl border border-ink/10 p-4 transition-colors duration-200 hover:border-ink/20 dark:border-paper/10 dark:hover:border-paper/20"
             >
-              <Icon name="arrow-right" className="mt-0.5 size-4 shrink-0 text-accent" />
+              <Icon name="arrow-right" className={`mt-0.5 size-4 shrink-0 ${iconStyles[index % iconStyles.length]}`} />
               <span className="text-sm leading-relaxed text-ink/75 dark:text-paper/75">{point}</span>
             </motion.div>
           ))}

@@ -4,7 +4,7 @@ import { ServiceCard } from "../components/ServiceCard";
 
 export function WhatIDo() {
   return (
-    <section id="what-i-do" className="bg-ink/[0.015] py-20 sm:py-28 dark:bg-paper/[0.02]">
+    <section id="what-i-do" className="bg-violet/[0.04] py-20 sm:py-28 dark:bg-violet/[0.06]">
       <div className="container-page">
         <SectionHeading
           eyebrow="What I Do"

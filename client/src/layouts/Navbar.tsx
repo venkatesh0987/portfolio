@@ -18,8 +18,9 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/80 backdrop-blur-md dark:border-paper/10 dark:bg-ink/80">
+      <div className="top-gradient-bar absolute inset-x-0 bottom-0 h-[2px] opacity-70" aria-hidden="true" />
       <div className="container-page flex h-16 items-center justify-between">
-        <a href="#hero" className="font-mono text-sm font-semibold tracking-tight text-ink dark:text-paper">
+        <a href="#hero" className="text-gradient font-mono text-sm font-semibold tracking-tight">
           {profile.name}
         </a>
 

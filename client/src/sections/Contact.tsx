@@ -5,7 +5,7 @@ import { profile } from "../data/profile";
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-ink/[0.015] py-20 sm:py-28 dark:bg-paper/[0.02]">
+    <section id="contact" className="bg-accent/[0.04] py-20 sm:py-28 dark:bg-accent/[0.06]">
       <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <SectionHeading

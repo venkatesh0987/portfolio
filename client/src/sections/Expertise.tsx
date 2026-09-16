@@ -4,7 +4,7 @@ import { SkillCard } from "../components/SkillCard";
 
 export function Expertise() {
   return (
-    <section id="expertise" className="bg-ink/[0.015] py-20 sm:py-28 dark:bg-paper/[0.02]">
+    <section id="expertise" className="bg-sky/[0.04] py-20 sm:py-28 dark:bg-sky/[0.06]">
       <div className="container-page">
         <SectionHeading eyebrow="Technical Expertise" title="Technologies I work with, grouped by layer" />
 

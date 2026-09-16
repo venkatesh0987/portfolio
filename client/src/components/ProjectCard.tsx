@@ -15,11 +15,11 @@ const coverStyles = [
 ];
 
 const borderStyles = [
-  "hover:border-accent/50",
-  "hover:border-violet/50",
-  "hover:border-sky/50",
-  "hover:border-amber/50",
-  "hover:border-rose/50",
+  "hover:border-accent/50 hover:shadow-lg hover:shadow-accent/15",
+  "hover:border-violet/50 hover:shadow-lg hover:shadow-violet/15",
+  "hover:border-sky/50 hover:shadow-lg hover:shadow-sky/15",
+  "hover:border-amber/50 hover:shadow-lg hover:shadow-amber/15",
+  "hover:border-rose/50 hover:shadow-lg hover:shadow-rose/15",
 ];
 
 const linkStyles = ["text-accent", "text-violet", "text-sky", "text-amber", "text-rose"];
