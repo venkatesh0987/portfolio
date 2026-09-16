@@ -5,7 +5,7 @@ export type SocialLink = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "[YOUR GITHUB]", icon: "github" },
+  { label: "GitHub", href: "https://github.com/venkatesh0987/", icon: "github" },
   { label: "LinkedIn", href: "[YOUR LINKEDIN]", icon: "linkedin" },
   { label: "Email", href: "mailto:mailtovenki87@gmail.com", icon: "mail" },
 ];
