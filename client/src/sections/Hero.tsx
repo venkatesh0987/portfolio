@@ -4,6 +4,8 @@ import { Button } from "../components/Button";
 
 const flow = ["13+ YEARS", "ARCHITECTURE", "CODE", "DATA", "PRODUCT"];
 
+const chipBorders = ["border-l-accent", "border-l-violet", "border-l-sky", "border-l-amber", "border-l-rose"];
+
 export function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32">
@@ -11,6 +13,11 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 bg-grid text-ink/[0.035] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)] dark:text-paper/[0.05]"
         aria-hidden="true"
       />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob absolute -top-24 -left-16 size-72 bg-violet" />
+        <div className="blob absolute top-10 -right-20 size-80 bg-accent" />
+        <div className="blob absolute bottom-0 left-1/3 size-64 bg-amber" />
+      </div>
 
       <div className="container-page relative grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <motion.div
@@ -51,7 +58,9 @@ export function Hero() {
         >
           {flow.map((label, index) => (
             <div key={label} className="flex flex-col items-center">
-              <div className="w-full rounded-xl border border-ink/10 bg-ink/[0.02] px-5 py-3 text-center font-mono text-xs tracking-[0.1em] text-ink/70 dark:border-paper/10 dark:bg-paper/[0.03] dark:text-paper/70">
+              <div
+                className={`w-full rounded-xl border border-l-4 border-ink/10 bg-ink/[0.02] px-5 py-3 text-center font-mono text-xs tracking-[0.1em] text-ink/70 dark:border-paper/10 dark:bg-paper/[0.03] dark:text-paper/70 ${chipBorders[index % chipBorders.length]}`}
+              >
                 {label}
               </div>
               {index < flow.length - 1 && <div className="h-5 w-px bg-ink/15 dark:bg-paper/15" />}

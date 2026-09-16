@@ -12,6 +12,10 @@
   --color-paper-soft: #eeece6;
   --color-accent: #2dd4bf;
   --color-accent-dim: #1f9c8d;
+  --color-violet: #8b5cf6;
+  --color-amber: #f59e0b;
+  --color-rose: #f43f5e;
+  --color-sky: #0ea5e9;
 
   --animate-fade-up: fade-up 0.6s ease-out both;
 
@@ -100,4 +104,14 @@ body {
     linear-gradient(to right, currentColor 1px, transparent 1px),
     linear-gradient(to bottom, currentColor 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+.blob {
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.35;
+}
+
+.dark .blob {
+  opacity: 0.25;
 }
