@@ -4,7 +4,7 @@ export const profile = {
   yearsExperience: "13+",
   sinceYear: 2013,
   location: "[YOUR LOCATION]",
-  email: "[YOUR EMAIL]",
+  email: "mailtovenki87@gmail.com",
   hero: {
     eyebrow: "Senior Full-Stack Software Developer",
     headline: "13+ Years of Experience Building SaaS & Business Applications",

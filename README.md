@@ -176,7 +176,6 @@ npm start
 
 Search the project for the following and replace with your real information:
 
-- `[YOUR EMAIL]` — your contact email
 - `[YOUR LINKEDIN]` — LinkedIn profile URL
 - `[YOUR GITHUB]` — GitHub profile URL
 - `[YOUR DOMAIN]` — your production domain (used in `client/index.html`, `robots.txt`, `sitemap.xml`)
