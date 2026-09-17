@@ -17,7 +17,6 @@ export const skillCategories: SkillCategory[] = [
       "HTML",
       "CSS",
       "Tailwind CSS",
-      "Vercel",
       "Responsive",
     ],
   },
@@ -27,8 +26,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "PHP",
       "Node.js",
-      "Render",
-      "Resend",
       "Ajax",
       "Axios",
       "Express",
@@ -49,6 +46,17 @@ export const skillCategories: SkillCategory[] = [
   {
     category: "Tools & Platforms",
     icon: "wrench",
-    skills: ["Git", "Odoo", "Odoo.sh", "Visual Studio", "Windsurf", "Claude Code - Sonnet", "Azure Portal"],
+    skills: [
+      "Git",
+      "Odoo",
+      "Odoo.sh",
+      "Visual Studio",
+      "Windsurf",
+      "Claude Code - Sonnet",
+      "Azure Portal",
+      "Vercel",
+      "Render",
+      "Resend",
+    ],
   },
 ];
