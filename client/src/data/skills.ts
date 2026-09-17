@@ -28,6 +28,6 @@ export const skillCategories: SkillCategory[] = [
   {
     category: "Tools & Platforms",
     icon: "wrench",
-    skills: ["Git", "Odoo", "Odoo.sh"],
+    skills: ["Git", "Odoo", "Odoo.sh", "Visual Studio", "Windsurf", "Claude Code - Sonnet", "Azure Portal"],
   },
 ];
