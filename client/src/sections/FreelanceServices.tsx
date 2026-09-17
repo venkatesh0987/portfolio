@@ -23,7 +23,7 @@ export function FreelanceServices() {
           variant="pop"
         />
 
-        <ul className="mt-12 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+        <ul className="mt-12 grid items-start gap-x-8 gap-y-4 sm:grid-cols-2">
           {freelanceServices.map((service, index) => (
             <motion.li
               key={service}
