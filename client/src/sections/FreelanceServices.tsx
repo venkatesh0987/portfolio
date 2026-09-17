@@ -31,7 +31,7 @@ export function FreelanceServices() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, ease: "backOut", delay: (index % 8) * 0.05 }}
-              className={`group flex items-start gap-3 rounded-lg border-b border-ink/10 -mx-3 px-3 pb-4 transition-all duration-200 hover:translate-x-1 dark:border-paper/10 ${hoverStyles[index % hoverStyles.length]}`}
+              className={`group flex items-start gap-3 rounded-lg border-b border-ink/10 -mx-3 px-3 pb-4 transition-all duration-200 hover:translate-x-1 hover:pt-4 dark:border-paper/10 ${hoverStyles[index % hoverStyles.length]}`}
             >
               <Icon
                 name="arrow-right"
