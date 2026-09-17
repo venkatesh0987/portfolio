@@ -31,11 +31,11 @@ export function FreelanceServices() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, ease: "backOut", delay: (index % 8) * 0.05 }}
-              className={`group flex items-center gap-3 rounded-lg border-b border-ink/10 -mx-3 px-3 pb-4 transition-all duration-200 hover:translate-x-1 dark:border-paper/10 ${hoverStyles[index % hoverStyles.length]}`}
+              className={`group flex items-start gap-3 rounded-lg border-b border-ink/10 -mx-3 px-3 pb-4 transition-all duration-200 hover:translate-x-1 dark:border-paper/10 ${hoverStyles[index % hoverStyles.length]}`}
             >
               <Icon
                 name="arrow-right"
-                className={`size-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 ${iconStyles[index % iconStyles.length]}`}
+                className={`mt-0.5 size-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 ${iconStyles[index % iconStyles.length]}`}
               />
               <span className="text-sm text-ink/75 transition-colors duration-200 group-hover:text-ink dark:text-paper/75 dark:group-hover:text-paper">
                 {service}
