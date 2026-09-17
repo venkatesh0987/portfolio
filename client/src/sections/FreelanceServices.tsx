@@ -13,16 +13,17 @@ export function FreelanceServices() {
           eyebrow="Freelance Services"
           title="Services available for independent engagements"
           description="These services are available as freelance, project-based or ongoing work."
+          variant="pop"
         />
 
         <ul className="mt-12 grid gap-x-8 gap-y-4 sm:grid-cols-2">
           {freelanceServices.map((service, index) => (
             <motion.li
               key={service}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: (index % 8) * 0.05 }}
+              transition={{ duration: 0.4, ease: "backOut", delay: (index % 8) * 0.05 }}
               className="flex items-center gap-3 border-b border-ink/10 pb-4 dark:border-paper/10"
             >
               <Icon name="arrow-right" className={`size-4 shrink-0 ${iconStyles[index % iconStyles.length]}`} />

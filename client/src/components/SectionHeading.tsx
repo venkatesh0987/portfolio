@@ -1,19 +1,42 @@
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 type SectionHeadingProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
+  variant?: "fade-up" | "slide-left" | "pop";
 };
 
-export function SectionHeading({ eyebrow, title, description, align = "left" }: SectionHeadingProps) {
+const headingVariants: Record<NonNullable<SectionHeadingProps["variant"]>, Variants> = {
+  "fade-up": {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  },
+  "slide-left": {
+    hidden: { opacity: 0, x: -40 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  },
+  pop: {
+    hidden: { opacity: 0, scale: 0.85 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "backOut" } },
+  },
+};
+
+export function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  align = "left",
+  variant = "fade-up",
+}: SectionHeadingProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      variants={headingVariants[variant]}
       className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
