@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Icon } from "./Icon";
+import { SkillIcon } from "./SkillIcon";
 import type { SkillCategory } from "../data/skills";
 
 const tileStyles = [
@@ -40,8 +41,9 @@ export function SkillCard({ category, icon, skills, index = 0 }: SkillCategory &
         {skills.map((skill) => (
           <li
             key={skill}
-            className="rounded-full border border-ink/10 px-3 py-1 text-xs text-ink/70 dark:border-paper/10 dark:text-paper/70"
+            className="inline-flex items-center gap-1.5 rounded-full border border-ink/10 px-3 py-1 text-xs text-ink/70 dark:border-paper/10 dark:text-paper/70"
           >
+            <SkillIcon skill={skill} className="size-3.5 shrink-0" />
             {skill}
           </li>
         ))}
