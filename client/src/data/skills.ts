@@ -28,7 +28,7 @@ export const skillCategories: SkillCategory[] = [
   {
     category: "Database",
     icon: "database",
-    skills: ["MySQL", "Partitioning", "Replication", "SnowFlake - Beginner"],
+    skills: ["MySQL", "NoSQL-ElasticSearch", "Partitioning", "Redis", "Replication", "SnowFlake - Beginner"],
   },
   {
     category: "Infrastructure",
